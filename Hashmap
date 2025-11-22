@@ -1,0 +1,37 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class WordCounter {
+    Map<String, Integer> wordMap = new HashMap<>();
+    public void countWords(String sentence) {
+        // Split sentence into words by spaces
+        String[] words = sentence.split(" ");
+
+        for (String word : words) {
+            // Convert to lowercase to avoid case differences (Java vs java)
+            word = word.toLowerCase();
+
+            // If word already exists, increase count
+            if (wordMap.containsKey(word)) {
+                wordMap.put(word, wordMap.get(word) + 1);
+            } else {
+                // Otherwise, add it with count 1
+                wordMap.put(woard, 1);
+            }
+        }
+    }
+        public void printWordCounts() {
+            for (Map.Entry<String, Integer> entry : wordMap.entrySet()) {
+                System.out.println(entry.getKey() + ": " + entry.getValue());
+            }
+        }
+        public static void main(String[] args) {
+            WordCounter wc = new WordCounter();
+            String sentence = "Java is fun and Java is powerful";
+
+            wc.countWords(sentence);
+            wc.printWordCounts();
+        }
+
+
+}
